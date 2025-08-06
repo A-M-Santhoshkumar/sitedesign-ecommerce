@@ -1,16 +1,43 @@
+// src/App.jsx
+import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 
-import './App.css'
+import Home from './pages/Home'
+import Contact from './pages/Contact'
+import About from './pages/About'
+import Login from './pages/Login'
+import Cart from './pages/Cart'
+import PlaceOrder from './pages/PlaceOrder'
+import Orders from './pages/Orders'
+import Product from './pages/Product'
+import Collection from './pages/Collection'
+
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import SearchBar from './components/SearchBar'
+
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 function App() {
-
   return (
-    <>
-  
-      <h1 className="text-3xl font-bold  text-center underline">
-      Hello world!
-    </h1>
-
-    </>
+    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+      <ToastContainer />
+      <Navbar />
+      <SearchBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/placeorder" element={<PlaceOrder />} />
+        <Route path="/orders" element={<Orders />} />
+        <Route path="/product/:productId" element={<Product />} />
+        <Route path="/collection" element={<Collection />} />
+      </Routes>
+      <Footer />
+    </div>
   )
 }
 
